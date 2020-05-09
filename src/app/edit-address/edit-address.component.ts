@@ -61,6 +61,7 @@ export class EditAddressComponent implements OnInit {
   private executeAddressCreation = (addressFormValue: { addline: string; city: string; pincode: number; state: string; }) => {
     let address: AddressModel = {
       addid:null,
+      retailerId:this.service.retailerId,
       addline: addressFormValue.addline,
       city: addressFormValue.city,
       pincode: addressFormValue.pincode,

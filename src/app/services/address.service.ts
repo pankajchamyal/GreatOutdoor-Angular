@@ -10,11 +10,13 @@ export class AddressService {
 
   addid:number;
   baseUrl:string;
+  retailerId: number=1;
   constructor(private http:HttpClient ) { 
     this.baseUrl=`${environment.baseMwUrl}/address`;
   }
-  getAddressList():Observable<AddressModel[]>{
-    return this.http.get<AddressModel[]>(this.baseUrl + '/all');  
+
+getAddressList():Observable<AddressModel[]>{
+    return this.http.get<AddressModel[]>(`${this.baseUrl + '/all'}/${this.retailerId}`);  
 }
 
 getById(addid: number):Observable<AddressModel>{
